@@ -1,0 +1,38 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel
+
+
+<div class="text-center">
+    <div class="program_wrapper">
+        <form asp-action="Index" asp-controller="Home" method="post" class="inputRow">
+            <div class="input_field">
+                <label>Field 1</label>
+                <input asp-for=input_a type="text" />
+            </div>
+            <div class="input_field">
+                <label>drop down list</label>
+                <select asp-for="SelectedOption" class="form-control">
+                    @foreach (var option in Model.Options)
+                    {
+                        <option value="@option">@option</option>
+                    }
+                </select>
+            </div>
+            <div class="input_field">
+                <label>Field 2</label>
+                <input asp-for=input_b type ="text" />
+          </div>
+            <div class="input_field">
+                <label>button</label>
+                <button  type="submit">Calculate</button>
+            </div>
+         
+        </form>
+        <textarea asp-for="Answer" placeholder="RESULT"></textarea>
+        
+    </div>
+</div>
